@@ -18,6 +18,8 @@ function register(event){
         fetch('/auth/signup',{method:"POST",body:JSON.stringify({fullname,email,password}),headers:{'Content-Type': 'application/json'}}).then(res => res.json()).then(data => {
             if(data.status === 'error'){
                 setError(data.message)
+            }else{
+                window.location.href="/"
             }
         }).catch(err =>{
             console.log("Error occured")
